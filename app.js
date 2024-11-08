@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.use);
+app.use(cors());
 
 dbConnection()
 const PORT = process.env.PORT || 3000;
