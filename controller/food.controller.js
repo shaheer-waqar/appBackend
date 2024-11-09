@@ -58,6 +58,28 @@ const getCategoryFood = async (req,res)=>{
     }
 
 }
+const getsingleFood = async (req,res)=>{
+    try {
+        
+        const {id} = req.params;
+            
+        const foods = await Food.findOne({_id:id});
+    
+        console.log(foods == true)
+        if(foods == null){
+            return res.status(404).json({msg: 'No foods found in this category'})
+        }
+    
+    
+        return res.status(200).json({
+            status :true,
+            data : foods
+        })
+    } catch (error) {
+     console.log(error)   
+    }
+
+}
 
 
-export {addFood,getAllFoods,getCategoryFood}
+export {addFood,getAllFoods,getCategoryFood,getsingleFood}
