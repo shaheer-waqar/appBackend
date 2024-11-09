@@ -4,6 +4,7 @@ import dbConnection from "./config/db.connection.js";
 import cors from "cors"
 import userRouter from './routes/user.route.js'
 import foodRouter from './routes/food.route.js'
+import orderRouter from './routes/order.route.js'
 const app = express();
 
 app.use(express.json());
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 
 app.use("/api/user/",userRouter);
 app.use("/api/food/",foodRouter)
+app.use("/api/",orderRouter)
 
 
 app.listen(PORT, () => {
