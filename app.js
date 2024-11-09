@@ -1,9 +1,9 @@
 import "dotenv/config"
 import express from 'express'; 
-import userRouter from './routes/user.route.js'
 import dbConnection from "./config/db.connection.js";
 import cors from "cors"
-
+import userRouter from './routes/user.route.js'
+import foodRouter from './routes/food.route.js'
 const app = express();
 
 app.use(express.json());
@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 });
 
 app.use("/api/user/",userRouter);
+app.use("/api/food/",foodRouter)
 
 
 app.listen(PORT, () => {
